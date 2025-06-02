@@ -1,13 +1,18 @@
-//** DARK MODE **//
+//*** BOTON Scroll Up ***//
 
-btnModoOscuro.addEventListener('click', () => {
-  const html = document.documentElement;
+const btnVolverArriba = document.getElementById('btnVolverArriba');
 
-  if (html.classList.contains('dark')) {
-    html.classList.remove('dark');
-    btnModoOscuro.textContent = '🌙'; // Cambia a luna si se desactiva
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 300) {
+    btnVolverArriba.style.display = 'block';
   } else {
-    html.classList.add('dark');
-    btnModoOscuro.textContent = '☀️'; // Cambia a sol si se activa
+    btnVolverArriba.style.display = 'none';
   }
+});
+
+btnVolverArriba.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
 });
